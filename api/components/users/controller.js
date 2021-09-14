@@ -31,8 +31,14 @@ function upsert(body) {
     }
 }
 
+function remove(userId) {
+    return Store.remove(TABLE, userId);
+}
+
+
 module.exports = {
     list,
     get,
     upsert,
+    remove,
 }

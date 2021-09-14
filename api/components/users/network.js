@@ -6,7 +6,7 @@ const response = require('../../../network/response');
 router.get('/', list);
 router.get('/:id', get);
 router.post('/', upsert);
-// router.delete('/:id', remove);
+router.delete('/:id', remove);
 
 // Functions
 
@@ -34,13 +34,13 @@ function upsert(req, res, next) {
         .catch(next);
 }
 
-// function list(req, res, next) {
-//     Controller.list()
-//         .then( users => {
-//             response.success(req, res, users, 200);
-//         })
-//         .catch(next);
-// }
+function remove(req, res, next) {
+    Controller.remove(req.params.id)
+        .then( deletedId => {
+            response.success(req, res, deletedId, 204);
+        })
+        .catch(next);
+}
 
 
 module.exports = router;

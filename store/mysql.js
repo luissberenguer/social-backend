@@ -49,7 +49,7 @@ function insert(table, data) {
                 return false;
             }
 
-            resolve(result);
+            resolve({response: "Succesfully created!"});
         })
     })
 }
@@ -67,9 +67,24 @@ function update(table, data) {
     })
 }
 
+function remove(table, id) {
+    return new Promise((resolve, reject) => {
+        console.log(`DELETE FROM ${table} WHERE id=?`);
+        connection.query(`DELETE FROM ${table} WHERE id=?`,id, (err, result) => {
+            if (err) {
+                reject(err);
+                return false;
+            }
+
+            resolve('Item deleted: ', result);
+        })
+    })
+}
+
 module.exports = {
     list,
     get,
     insert,
-    update
+    update,
+    remove,
 }
