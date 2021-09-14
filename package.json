@@ -1,0 +1,31 @@
+{
+  "name": "social-backend",
+  "version": "0.1.0",
+  "description": "A social network application like twitter",
+  "main": "api/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luissberenguer/social-backend.git"
+  },
+  "keywords": [
+    "node",
+    "javascript",
+    "social-network"
+  ],
+  "author": "Luis Berenguer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luissberenguer/social-backend/issues"
+  },
+  "homepage": "https://github.com/luissberenguer/social-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.0",
+    "nanoid": "^3.1.25"
+  }
+}
