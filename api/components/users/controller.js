@@ -1,4 +1,5 @@
 const Store = require('../../../store/mysql');
+const Auth = require('../auth/controller');
 const {nanoid} = require('nanoid');
 
 const TABLE = 'user';
@@ -18,6 +19,7 @@ function upsert(body) {
             username: body.username,
             bio: body.bio
         }
+        
         return Store.update(TABLE, user)
     } else if (body) {
         let user = {
@@ -25,7 +27,9 @@ function upsert(body) {
             username: body.username,
             bio: body.bio,
         }
-        return Store.insert(TABLE, user)
+
+        Auth.insert(user, body);
+        return Store.insert(TABLE, user);
     } else {
         throw new Error('There is no body!')
     }
